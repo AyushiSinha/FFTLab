@@ -1,0 +1,55 @@
+To run Alignment code:
+NOTE: This code was compiled on a Windows machine.
+1. Download Alignment.zip from github repository: https://github.com/AyushiSinha/BDSLSS/tree/fb202810dd7f1cafbcba28ff8fa23216b89a6a0d
+2. Extract all files
+3. In Alignment/Release/:
+	a. Alignment.exe is the executable
+	b. Input Reference:
+		(Short) lambda_virus_short.fa
+		(Long) lambda_virus.fa
+	c. Input Reads:
+		(Short) reads.fq
+		(Long) reads_1.fq
+	d. Output Files:
+		SAM: Alignments in the regular SAM output format
+		GL: Sorted alignments in a format suitable as input for GraphLab.
+4. To run
+	a. Quick run (1 second): Alignment.exe --ref lambda_virus.fa --read reads.fq --out out_lambda_virus_short
+	b. Slow run (2 minutes): Alignment.exe --ref lambda_virus.fa --read reads_1.fq --out out_lambda_virus
+
+NOTE: A Linux/Mac version of this code will be available soon!
+
+
+#######################################################################################################################################
+
+
+To run Assembly code:
+NOTE: This code is on the damsl.cs.jhu.edu cluster, node qp5.
+1. In /home/shuya/graphlab/release/apps/assembly/
+	a. Input: 
+		(Short) GraphLab_Input.txt
+		(Long) out_lambda_virus.GL
+	b. Output
+		result: contains the resequenced genome (also available on the github repository)
+	c. Makefile: CMakeLists.txt
+2. To run
+	a. Type: make
+	b. Quick run (1 second): ./assmbly --infile=GraphLab_Input.txt --outfile=output --source=33 --destination=5
+	c. Slow run (4 hours): ./assmbly --infile=out_lambda_virus.GL --outfile=output --source=3903 --destination=7215
+
+										OR
+
+In case you are running on a different cluster:
+
+1. Download and install GraphLab. Here is how to install GraphLab on Linux: http://graphlab.org/tutorials-2/graphlab-installation-on-ubuntu/
+2. After installation, create a folder named 'assembly' under graphlab/apps, download assembly_final.cpp from gitbub repository given above.
+3. Put assmebly_final.cpp and CMakeList.txt under graphlab/apps/assembly
+4. In graphlab/, type ./configure
+5. Then create a folder named 'assembly' under graphlab/release/apps.
+6. Put GraphLab_Input.txt under graphlab/realease/apps/assembly.
+7. In graphlab/realease/apps/assembly, type:
+	a. make
+	b. Quick run (1 second): ./assmbly --infile=GraphLab_Input.txt --outfile=output --source=33 --destination=5
+	c. Slow run (4 hours): ./assmbly --infile=out_lambda_virus.GL --outfile=output --source=3909 --destination=7215
+
+NOTE: You need to specify (manually enter) the id for source and destination (first and last read IDs from the input file)
