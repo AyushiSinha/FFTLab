@@ -42,11 +42,11 @@ NOTE: This code is on the damsl.cs.jhu.edu cluster, node qp5.
 In case you are running on a different cluster:
 
 1. Download and install GraphLab. Here is how to install GraphLab on Linux: http://graphlab.org/tutorials-2/graphlab-installation-on-ubuntu/
-2. After installation, create a folder named 'assembly' under graphlab/apps, download assembly_final.cpp from gitbub repository given above.
+2. After installation, create a folder named 'assembly' under graphlab/apps, download assembly_final.cpp and Makefile from gitbub repository given above.
 3. Put assmebly_final.cpp and CMakeList.txt under graphlab/apps/assembly
 4. In graphlab/, type ./configure
 5. Then create a folder named 'assembly' under graphlab/release/apps.
-6. Put GraphLab_Input.txt under graphlab/realease/apps/assembly.
+6. Put GraphLab_Input.txt and out_lambda_virus.GL under graphlab/realease/apps/assembly.
 7. In graphlab/realease/apps/assembly, type:
 	a. make
 	b. Quick run (1 second): ./assmbly --infile=GraphLab_Input.txt --outfile=output --source=33 --destination=5
