@@ -37,7 +37,7 @@ NOTE: This code is on the damsl.cs.jhu.edu cluster, node qp5.
 	b. Quick run (1 second): ./assmbly --infile=GraphLab_Input.txt --outfile=output --source=33 --destination=5
 	c. Slow run (4 hours): ./assmbly --infile=out_lambda_virus.GL --outfile=output --source=3903 --destination=7215
 
-										OR
+			OR
 
 In case you are running on a different cluster:
 
